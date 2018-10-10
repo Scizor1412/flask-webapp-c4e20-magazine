@@ -11,7 +11,7 @@ app = Flask(__name__)
 mlab.connect()
 
 app.secret_key = "secret key"
-1
+
 @app.route('/')
 def index():
     return render_template('index.html')
