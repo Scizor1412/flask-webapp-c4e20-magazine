@@ -15,6 +15,7 @@ mongoengine
 # ----------------------
 eventlet
 gunicorn
+gevent
 
 # ----------------------
 # Others
