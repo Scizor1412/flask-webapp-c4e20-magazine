@@ -22,3 +22,5 @@ gevent
 # ----------------------
 addict
 shortuuid
+gmail
+
