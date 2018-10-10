@@ -1,0 +1,55 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-dark nav-border sticky-top">
+    <div class="collapse navbar-collapse d-flex justify-content-between">
+        <div class="d-flex">
+            <a class="navbar-brand" href="{{ url_for('homepage') }}">
+                <img src="../static/image/One-news-logo.jpg" width="40" height="40" class="d-inline-block align-top">
+            </a>
+        <div class="collapse navbar-collapse d-flex justify-content-center">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link text-nav" href="{{ url_for('profile') }}">Trang cá nhân</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-nav" href="{{ url_for('admin') }}">Admin</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-nav" href="{{ url_for('login') }}">Đăng nhập</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-nav" href="{{ url_for('logout') }}">Đăng xuất</a>
+                </li>
+            <!-- <li class="nav-item dropdown ">
+                <a class="nav-link dropdown-toggle text-nav" href="#" role="button" data-toggle="dropdown">
+                Dropdown
+                </a>
+            </div>
+            <div class="navbar-nav d-flex align-items-center">
+                <div class="nav-item">
+                    <a class="nav-link text-nav" href="{{ url_for('homepage') }}">Trang chủ</a>
+                </div>
+                <div class="nav-item">
+                    <a class="nav-link text-nav" href="{{ url_for('profile') }}">Trang cá nhân</a>
+                </div>
+                <li class="nav-item dropdown ">
+                    <a class="nav-link dropdown-toggle text-nav" href="#" role="button" data-toggle="dropdown">
+                    Dropdown
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item text-nav2" href="#">Action</a>
+                        <a class="dropdown-item text-nav2" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item text-nav2" href="#">Something else here</a>
+                    </div>
+                </li> -->
+        </div>
+    </div>
+    <div class="d-flex">
+        <div>
+            <form method="POST">
+                <!-- <input type="form-type" value="search" name="search" class="d-none"> -->
+                <input class="mr-sm-2 text-nav-search p-1" type="text" placeholder=" Tìm kiếm" style="height: 25px" name="search">
+                <input class="btn btn-outline text-nav-search p-1" style="line-height: 25px" type="submit" value="Tìm kiếm">
+            </form>
+        </div>
+    </div>
+</nav>

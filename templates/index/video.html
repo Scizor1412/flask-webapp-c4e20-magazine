@@ -1,0 +1,21 @@
+<div class="d-flex align-items-center justify-content-center w-100p nav-border">
+    <video autoplay muted loop id="myVideo" class="w-100">
+        <source src="/static/video/123.mp4" type="video/mp4">
+        <source src="/static/video/123.ogg" type="video/ogg">
+    </video>
+
+    <div class="content d-flex flex-column align-items-center justify-content-center">
+        <a href="{{ url_for('homepage')}}"><div class="w-100 d-flex justify-content-center" style="height:200px">
+            <img src="/static/image/One-news-logo.jpg" alt="" style="height: 200px;width: 200px;">
+        </div></a> 
+        <br>
+        <h2 class = "font-noto text-uppercase">read it your way</h2>
+        
+    
+        <br>
+        <a href="{{ url_for('homepage') }}" class="text-primary">
+            <button class="myBtn myBtn1 font-noto">Tìm hiểu thêm</button>
+        </a>
+        <br>
+    </div>  
+</div>

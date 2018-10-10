@@ -1,0 +1,42 @@
+.bg-homepage-1{
+    background-image: url(../image/homepage-bg-1.jpg);
+    min-height: 720px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bg-lightpink{
+    background-color: lightcoral;
+}
+
+.w-15{
+    width: 15%;
+}
+
+.w-20{
+    width: 20%;
+}
+
+.w-100{
+    width: 100%;
+}
+
+.font-oswald{
+    font-family: 'Oswald', sans-serif;
+}
+
+.top-40px{
+    top: 15%;
+}
+
+.bg-list{
+    background-color: #b37700;
+}
+
+.h-100px{
+    height: 100px;
+}
+
+.h-200px{
+    height: 200px;
+}

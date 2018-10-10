@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ article.title }}</title>
+    {% include 'meta-data.html' %}
+</head>
+<body>
+    {% include "nav-bar.html" %}
+    <div class="d-flex justify-content-between">
+        <div class="w-15 bg-light h-25 sticky-top top-40px rounded shadow">
+            <div class="card" style="width: 100%;">
+                <div class="card-header text-center font-weight-bold text-light font-oswald bg-list">Tin bài nổi bật</div>
+                <ul class="list-group list-group-flush">
+                    {% for i in range (2) %}
+                    <a href="{{ url_for('template', article_id = articles_view[i].id) }}">
+                    <li class="list-group-item text-center btn-light">
+                        <img src="{{ articles_view[i].thumbnail }}" class="img-fluid">
+                        <small>{{ articles_view[i].title }}</small>
+                    </li>
+                    </a>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="d-flex flex-column align-items-center col-md-6 p-3 mx-3">
+            <h1>{{ article.title }}</h1>
+            <img src="{{article.thumbnail }}" class="img-fluid my-3">
+            <h3>{{ article.sapo }}</h3>
+            <div class="container mt-2 mb-4">
+            <small class="align-self-start">{{ article.time }} | 
+                <i class="fas fa-user mx-2"></i>{{ article.author }} | 
+                <i class="far fa-eye mx-2"></i> {{ article.view_count }}</small>
+            </div>
+            {{ article.content|safe }}
+            <br>
+            <hr class="w-100">
+            <div class="align-self-start container">
+            {% for comment in article.comment %}
+                {% if loop.index%2 != 0 %}
+                <div class="d-flex bg-light">
+                    <img src="../static/image/male-profile.jpg" class="mr-3" style="height: 50px; width: 50px">
+                    <div>
+                        <div class="text-primary font-weight-bold mb-1">
+                            {{ comment.author }}
+                        </div>
+                        {{ comment.content }}
+                        <br>
+                        <small>{{ comment.time }}</small>
+                    </div>
+                </div>
+                <hr>
+                {% else %}
+                <div class="d-flex">
+                    <img src="../static/image/male-profile.jpg" class="mr-3" style="height: 50px; width: 50px">
+                    <div>
+                        <div class="text-primary font-weight-bold mb-1">
+                            {{ comment.author }}
+                        </div>
+                        {{ comment.content }}
+                        <br>
+                        <small>{{ comment.time }}</small>
+                    </div>
+                </div>
+                <hr>
+                {% endif%}
+            {% endfor %}
+            <div>
+                <form method ="POST">
+                    <!-- <textarea name="" id="" cols="30" rows="10"></textarea> -->
+                    <textarea type="text" name="content" class="w-100 h-100px mb-2"></textarea>
+                    <input type="submit" class="float-right btn btn-primary" value="Đăng">
+                </form>
+            </div>
+            </div>
+        </div>
+        <div class="w-20 bg-light h-100 rounded shadow my-2">
+            <div class="card" style="width: 100%;">
+                <div class="card-header container font-weight-bold text-light font-oswald bg-list">Tin liên quan</div>
+                <ul class="list-group list-group-flush">
+                    {% for i in range (5) %}
+                        <a href="{{ url_for('template', article_id = articles_type_time[i].id) }}">
+                            <li class="list-group-item text-center btn-light">
+                                <img src="{{ articles_type_time[i].thumbnail }}" class="img-fluid">
+                                <small>{{ articles_type_time[i].title }}</small>
+                            </li>
+                        </a>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="w-15"></div>
+    </div>
+    {% include "footer.html" %}
+</body>
+</html>

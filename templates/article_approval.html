@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Phê duyệt bài viết</title>
+    {% include "meta-data.html" %}
+</head>
+<body>
+    {% include "nav-bar.html" %}
+    <div class="d-flex">
+        {% include "vertical-bar.html" %}
+        <div class="container">
+            <h1>Quản lý</h1>
+            <h2>Phê duyệt bài viết</h2>
+            <table class="table table-bordered">
+                <thead class="bg-primary">
+                    <th>STT</th>
+                    <th>Tiêu đề</th>
+                    <th>Thời gian</th>
+                    <th>Tác giả</th>
+                    <th>Xếp hạng</th>
+                    <th>Tùy chọn</th>
+                </thead>
+                <tbody>
+                    {% for article in articles %}
+                        {% if article.level == 0 %}
+                        <tr>
+                            <td>{{ loop.index }}</td>
+                            <td>{{ article.title }}</td>
+                            <td>{{ article.time }}</td>
+                            <td>{{ article.author }}</td>
+                            <td>{{ article.level }}</td>
+                            <td>
+                                <a href="{{ url_for('approve_article', article_id = article.id) }}">Phê duyệt</a>
+                                <a href="{{ url_for('delete_article', article_id = article.id) }}">Hủy bài</a>
+                            </td>
+                        </tr>
+                        {% endif %}
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {% include "footer.html" %}
+</body>
+</html>

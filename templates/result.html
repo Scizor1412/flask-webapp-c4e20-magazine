@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Search Results {{ keywords }}</title>
+    {% include "meta-data.html" %}
+</head>
+<body>
+    {% include "nav-bar.html" %}
+    <div class="d-flex">
+        <div class="col-md-2 p-2 bg-light border rounded pt-2 sticky-top h-25 d-flex flex-column justify-content-around" style="top: 200px">
+            <nav class="btn btn-warning navbar navbar-light mb-1">
+                <a class="navbar-brand" href="{{ url_for('game') }}">Tin Game</a>
+            </nav>
+            <nav class="btn btn-primary navbar navbar-light mb-1">
+                <a class="navbar-brand" href="{{ url_for('film') }}">Tin Film</a>
+            </nav>
+            <nav class="btn btn-warning navbar navbar-light mb-1">
+                <a class="navbar-brand" href="{{ url_for('tech') }}">Tin tức công nghệ</a>
+            </nav>
+        </div>
+        <div class="col-md-8 p-3 mx-3">
+            <h1 class="text-center mb-5">Đang tìm từ khóa: {{ keywords }}</h1>
+            {% for article in articles %}
+                <div class="d-flex my-3 border rounded border-light btn-light p-3">
+                    <div class="mr-3">
+                        <img src="{{ article.thumbnail }}" style="width: 170px; height: 170px">
+                    </div>
+                    <div>
+                        <a href="{{ url_for('template', article_id=article.id) }}">
+                            <h3>{{ article.title }}</h3>
+                        </a>
+                        <p>{{ article.sapo }}</p>
+                        <small>{{ article.author}} | {{ article.time }}</small>
+                    </div>
+                </div>
+            {% endfor %}
+            <div class="h-200px"></div>
+        </div>
+        <div class="w-15 bg-light h-25 sticky-top top-40px rounded shadow">
+            <div class="card" style="width: 100%;">
+                <div class="card-header text-center font-weight-bold text-light font-oswald bg-list">Tin bài nổi bật</div>
+                <ul class="list-group list-group-flush">
+                    {% for i in range (2) %}
+                    <a href="{{ url_for('template', article_id = articles_view[i].id) }}">
+                    <li class="list-group-item text-center btn-light">
+                        <img src="{{ articles_view[i].thumbnail }}" class="img-fluid">
+                        <small>{{ articles_view[i].title }}</small>
+                    </li>
+                    </a>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    {% include "footer.html" %}
+</body>
+</html>

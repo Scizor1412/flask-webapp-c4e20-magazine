@@ -1,0 +1,23 @@
+<div class="col-md-3 h-800px bg-light border rounded pt-5">
+    <nav class="btn btn-warning navbar navbar-light mb-1" href="{{ url_for('homepage') }}">
+        <a class="navbar-brand" href="{{ url_for('homepage') }}">Trang chủ</a>
+    </nav>
+    <nav class="btn btn-primary navbar navbar-light mb-1">
+        <a class="navbar-brand" href="{{ url_for('admin_user') }}">Quản lý người dùng</a>
+    </nav>
+    <nav class="btn btn-warning navbar navbar-light mb-1">
+        <a class="navbar-brand" href="{{ url_for('admin_article') }}">Quản lý bài viết</a>
+    </nav>
+    <nav class="btn btn-primary navbar navbar-light mb-1">
+        <a class="navbar-brand" href="{{ url_for('change_password', user_id = userid) }}">Thay đổi mật khẩu</a>
+    </nav>
+    <nav class="btn btn-warning navbar navbar-light mb-1">
+        <a class="navbar-brand" href="{{ url_for('user_approval') }}">Phê duyệt người dùng</a>
+    </nav>
+    <nav class="btn btn-primary navbar navbar-light mb-1">
+        <a class="navbar-brand" href="{{ url_for('article_approval') }}">Phê duyệt bài viết</a>
+    </nav>
+    <nav class="btn btn-warning navbar navbar-light mb-1">
+        <a class="navbar-brand" href="{{ url_for('logout') }}">Đăng xuất</a>
+    </nav>
+</div>

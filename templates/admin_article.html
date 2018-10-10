@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Quản lý bài viết</title>
+    {% include "meta-data.html" %}
+</head>
+<body>
+    {% include "nav-bar.html" %}
+    <div class="d-flex">
+        {% include "vertical-bar.html" %}
+        <div class="container">
+            <h1>Quản lý</h1>
+            <h2>Danh sách bài viết</h2>
+            <table class="table table-bordered">
+                <thead class="bg-primary">
+                    <th>STT</th>
+                    <th>Tiêu đề</th>
+                    <th>Thời gian</th>
+                    <th>Tác giả</th>
+                    <th>Tùy chọn</th>
+                </thead>
+                <tbody>
+                    {% for article in articles %}
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td>{{ article.title }}</td>
+                        <td>{{ article.time }}</td>
+                        <td>{{ article.author }}</td>
+                        <td>
+                            <a href="{{ url_for('edit_article', article_id = article.id) }}">Thay đổi</a>
+                            <a href="{{ url_for('delete_article', article_id = article.id) }}">Xóa</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {% include "footer.html" %}
+</body>
+</html>

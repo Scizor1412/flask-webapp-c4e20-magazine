@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Trang đăng nhập</title>
+
+    {% include "meta-data.html" %}
+    
+</head>
+<body>
+    <!-- Làm background -->
+    <div class="d-flex justify-content-center bg-login h-800px">
+        <!-- Card ảnh-->
+        <div class="card" style="width: 35rem; height: 65%; margin-top: 50px;">
+            <div class="card bg-dark text-light">
+                <img class="card-img" src="../static/image/news.jpg" alt="Card image">
+                <div class="card-img-overlay d-flex justify-content-center align-items-center">
+                    <h3 class="card-title text-capitalize"></h3>
+                </div>
+            </div>
+            <div class="card-body">
+                <!-- form đăng nhập -->
+                <form method="POST">
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" class="form-control" name="email" placeholder="Nhập Email">
+                        <small class="form-text text-muted font-italic">Thông tin của bạn sẽ luôn được bảo mật!</small>
+                    </div>
+                    <div class="form-group">
+                        <label>Mật khẩu</label>
+                        <input type="password" class="form-control" name="password" placeholder="Nhập Mật Khẩu">
+                    </div>
+                    <div class="form-group form-check line-height-1px"> 
+                        <input type="checkbox" class="form-check-input" name="checkbox">
+                        <small><label class="form-check-label font-italic">Tôi không phải người máy</label></small>
+                    </div>
+                    <div class="d-flex">
+                    <button type="submit" class="btn btn-primary">Đăng nhập</button>
+                    <div class="d-flex align-items-end">
+                        <a href="{{ url_for('forgotpass') }}" class="card-link"><small class="font-italic text-muted"> Quên mật khẩu? </small></a>
+                    </div>
+                    <div class="d-flex align-items-end">
+                        <a href="{{ url_for('signup') }}" class="card-link"><small class="font-italic text-muted ml-1"> Chưa có tài khoản? </small></a>
+                    </div> 
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

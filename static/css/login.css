@@ -1,0 +1,12 @@
+.line-height-1px{
+    line-height: 18px;
+}
+
+.bg-login{
+    background-image: url(../image/bg-login1.jpg);
+    background-size: cover;
+}
+
+.h-800px{
+    height: 800px
+}

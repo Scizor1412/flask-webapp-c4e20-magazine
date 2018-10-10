@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Đọc báo theo cách của bạn</title>
+    {% include "meta-data.html" %}
+</head>
+<body>
+    {% include "nav-bar.html" %}
+    <div class="bg-homepage-1 mb-3"></div>
+    <div class="bg-product d-flex justify-content-between">
+        <div class="col-md-2 p-2 bg-light border rounded pt-2 sticky-top h-25 d-flex flex-column justify-content-around" style="top: 200px">
+            <nav class="btn btn-warning navbar navbar-light mb-1">
+                <a class="navbar-brand" href="{{ url_for('game') }}">Tin Game</a>
+            </nav>
+            <nav class="btn btn-primary navbar navbar-light mb-1">
+                <a class="navbar-brand" href="{{ url_for('film') }}">Tin Film</a>
+            </nav>
+            <nav class="btn btn-warning navbar navbar-light mb-1">
+                <a class="navbar-brand" href="{{ url_for('tech') }}">Tin tức công nghệ</a>
+            </nav>
+        </div>
+        <div class="card-columns col-md-8 p-3 mx-3">
+            <!-- Card 1 -->
+            <a href="{{ url_for('template', article_id = articles[1].id) }}">
+                <div class="card btn-light">
+                    <img class="card-img-top" src="{{ articles[1].thumbnail }}" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary">{{ articles[1].title }}</h5>
+                        <p class="card-text">{{ articles[1].sapo }}</p>
+                        <p class="card-text"><small class="text-muted">{{ articles[1].time }} - {{ articles[1].author }}</small></p>
+                    </div>
+                </div>
+            </a>
+            <!-- Card 2 -->
+            <a href="{{ url_for('template', article_id = articles[3].id) }}">
+                <div class="card btn-light">
+                    <img class="card-img-top" src="{{ articles[3].thumbnail }}" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary">{{ articles[3].title }}</h5>
+                        <p class="card-text">{{ articles[3].sapo }}</p>
+                        <p class="card-text"><small class="text-muted">{{ articles[3].time }} - {{ articles[3].author }}</small></p>
+                    </div>
+                </div>
+            </a>
+            <!-- Card 3 -->
+            <a href="{{ url_for('template', article_id = articles[0].id) }}">
+            <div class="card btn-light">
+                <img class="card-img-top" src="{{ articles[0].thumbnail }}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title text-primary">{{ articles[0].title }}</h5>
+                    <p class="card-text">{{ articles[0].sapo }}</p>
+                    <p class="card-text"><small class="text-muted">{{ articles[0].time }} - {{ articles[0].author }}</small></p>
+                </div>
+            </div>
+            </a>
+            <!-- center card -->
+            <div class="card bg-primary text-white text-center p-3">
+                <h4>Breaking News</h4>
+                <blockquote class="blockquote mb-0">
+                    <p>"Just play. Have fun. Enjoy the game."</p>
+                    <footer class="blockquote-footer">
+                        <small>
+                            Michael Jordan <cite title="Source Title">Brainy Quote</cite>
+                        </small>
+                    </footer>
+            </blockquote>
+            </div>
+            <!-- Card 4 -->
+            <a href="{{ url_for('template', article_id = articles[2].id) }}">
+                <div class="card btn-light">
+                    <img class="card-img-top" src="{{ articles[2].thumbnail }}" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary">{{ articles[2].title }}</h5>
+                        <p class="card-text">{{ articles[2].sapo }}</p>
+                        <p class="card-text"><small class="text-muted">{{ articles[2].time }} - {{ articles[2].author }}</small></p>
+                    </div>
+                </div>
+            </a>
+            <!-- Card 5 -->
+            <a href="{{ url_for('template', article_id = articles[4].id) }}">
+                <div class="card btn-light">
+                    <img class="card-img-top" src="{{ articles[4].thumbnail }}" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary">{{ articles[4].title }}</h5>
+                        <p class="card-text">{{ articles[4].sapo }}</p>
+                        <p class="card-text"><small class="text-muted">{{ articles[4].time }} - {{ articles[4].author }}</small></p>
+                    </div>
+                </div>
+            </a>
+            <!-- Card 7 -->
+            <a href="{{ url_for('template', article_id = articles[5].id) }}">
+                <div class="card btn-light">
+                    <img class="card-img-top" src="{{ articles[5].thumbnail }}" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary">{{ articles[5].title }}</h5>
+                        <p class="card-text">{{ articles[5].sapo }}</p>
+                        <p class="card-text"><small class="text-muted">{{ articles[5].time }} - {{ articles[5].author }}</small></p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="w-15 bg-light h-25 sticky-top top-40px rounded shadow">
+            <div class="card" style="width: 100%;">
+                <div class="card-header text-center font-weight-bold text-light font-oswald bg-list">Tin bài nổi bật</div>
+                <ul class="list-group list-group-flush">
+                    {% for i in range (2) %}
+                    <a href="{{ url_for('template', article_id = articles_view[i].id) }}">
+                    <li class="list-group-item text-center btn-light">
+                        <img src="{{ articles_view[i].thumbnail }}" class="img-fluid">
+                        <small>{{ articles_view[i].title }}</small>
+                    </li>
+                    </a>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    {% include "footer.html" %}
+</body>
+</html>

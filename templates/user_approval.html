@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Phê duyệt người dùng</title>
+    {% include "meta-data.html" %}
+</head>
+<body>
+    {% include "nav-bar.html" %}
+    <div class="d-flex">
+        {% include "vertical-bar.html" %}
+        <div class="container">
+            <h1>Quản lý</h1>
+            <h2>Phê duyệt người dùng</h2>
+            <table class="table table-bordered">
+                <thead class="bg-primary">
+                    <th>STT</th>
+                    <th>Tên</th>
+                    <th>Năm sinh</th>
+                    <th>Email</th>
+                    <th>Tùy chọn</th>
+                </thead>
+                <tbody>
+                    {% for user in users %}
+                        {% if user.request == True %}
+                        <tr>
+                            <td>{{ loop.index }}</td>
+                            <td>{{ request.fullname }}</td>
+                            <td>{{ request.yob }}</td>
+                            <td>{{ request.email }}</td>
+                            <td>
+                                <a href="{{ url_for('approve_user', user_id = user.id) }}">Phê duyệt</a>
+                                <a href="{{ url_for('reject_user', user_id = user.id) }}">Từ chối</a>
+                            </td>
+                        </tr>
+                        {% endif %}
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {% include "footer.html" %}
+</body>
+</html>

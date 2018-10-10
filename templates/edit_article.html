@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Chỉnh sửa bài viết</title>
+    {% include "meta-data.html" %}
+</head>
+<body>
+    {% include "nav-bar.html" %}
+    <div class="d-flex">
+        {% include "vertical-bar.html" %}
+        <div class="container">
+            <h1>Chỉnh sửa bài viết</h1>
+            <form method="POST">
+                <label>Tiêu đề</label>
+                <br>
+                <input type="text" name="title" placeholder="{{ edit_article.title }}">
+                <br>
+                <label>Sapo</label>
+                <br>
+                <input type="text" name="sapo" placeholder="{{ edit_article.sapo }}">
+                <br>
+                <label>Thumbnail</label>
+                <br>
+                <input type="text" name="thumbnail" placeholder="{{ edit_article.thumbnail }}">
+                <br>
+                <label>Nội dung</label>
+                <br>
+                <input type="text" name="content" placeholder="{{ edit_article.content }}">
+                <br>
+                <label>Tác giả</label>
+                <br>
+                <input type="text" name="author" placeholder="{{ edit_article.author }}">
+                <br>
+                <label>Thời gian</label>
+                <br>
+                <input type="text" name="time" placeholder="{{ edit_article.time }}">
+                <br>
+                <br>
+                <input type="submit" value="Thêm">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

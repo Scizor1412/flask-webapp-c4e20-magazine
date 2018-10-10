@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Quản lý người dùng</title>
+    {% include "meta-data.html" %}
+</head>
+<body>
+    {% include "nav-bar.html" %}
+    <div class="d-flex">
+        {% include "vertical-bar.html" %}
+        <div class="container">
+            <h1>Quản lý</h1>
+            <h2>Danh sách người dùng</h2>
+            <table class="table table-bordered">
+                <thead class="bg-primary">
+                    <th>STT</th>
+                    <th>Tên</th>
+                    <th>Năm sinh</th>
+                    <th>Email</th>
+                    <th>Tùy chọn</th>
+                </thead>
+                <tbody>
+                    {% for user in users %}
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td>{{ user.fullname }}</td>
+                        <td>{{ user.yob }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>
+                            <a href="{{ url_for('edit_user', user_id = user.id) }}">Thay đổi</a>
+                            <a href="{{ url_for('delete_user', user_id = user.id) }}">Xóa</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {% include "footer.html" %}
+</body>
+</html>
