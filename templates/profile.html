@@ -30,6 +30,13 @@
                                 <h4 class="font-noto">Cấp thành viên: Thành viên thường</h4>
                                 {% endif %}
                                 <a href="{{ url_for('change_password', user_id = user_profile.id)}}"><h4>Thay đổi mật khẩu</h4></a>
+                                {% if user_profile.level == 3 %}
+                                <a href="{{ url_for('moderator', user_id = user_profile.id)}}"><h4>Đăng ký làm Moderator</h4></a>
+                                {% elif user_profile.level == 0 %}
+                                <br>
+                                {% else %}
+                                <h4 class="disable">Đăng ký làm Moderator</h4>
+                                {% endif %}
                             </div>
                         </div>
             </div>

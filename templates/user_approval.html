@@ -24,12 +24,12 @@
                 </thead>
                 <tbody>
                     {% for user in users %}
-                        {% if user.request == True %}
+                        {% if user.level == 2 %}
                         <tr>
                             <td>{{ loop.index }}</td>
-                            <td>{{ request.fullname }}</td>
-                            <td>{{ request.yob }}</td>
-                            <td>{{ request.email }}</td>
+                            <td>{{ user.fullname }}</td>
+                            <td>{{ user.yob }}</td>
+                            <td>{{ user.email }}</td>
                             <td>
                                 <a href="{{ url_for('approve_user', user_id = user.id) }}">Phê duyệt</a>
                                 <a href="{{ url_for('reject_user', user_id = user.id) }}">Từ chối</a>

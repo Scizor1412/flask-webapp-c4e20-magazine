@@ -5,20 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Edit User</title>
+    {% include "meta-data.html" %}
 </head>
 <body>
-    <h2>Trang quản lý thông tin người dùng</h2>
-    <form method="POST">
-        <label>Fullname:</label> <br>
-        <input type="text" name="fullname" placeholder="{{ edit_user.fullname }}">
-        <br>
-        <label>Yob:</label> <br>
-        <input type="text" name="yob" placeholder="{{ edit_user.yob }}">
-        <br>
-        <label>Email:</label> <br>
-        <input type="email" name="email" placeholder="{{ edit_user.email }}">
-        <br>
-        <input type="submit" value="Submit">
-    </form>
+    {% include "nav-bar.html" %}
+    <div class="d-flex">
+        {% include "vertical-bar.html" %}
+        <div class="container">
+            <br><br>
+            <h2>Trang quản lý thông tin người dùng</h2>
+            <form method="POST">
+                <label>Fullname:</label> <br>
+                <input type="text" name="fullname" placeholder="{{ edit_user.fullname }}">
+                <br>
+                <label>Yob:</label> <br>
+                <input type="text" name="yob" placeholder="{{ edit_user.yob }}">
+                <br>
+                <label>Email:</label> <br>
+                <input type="email" name="email" placeholder="{{ edit_user.email }}">
+                <br>
+                <label>Level: </label><br>
+                <input list ="level" name="level" placeholder="{{ edit_user.level }}">
+                    <datalist id="level">
+                        <option value= 0>
+                        <option value= 1>
+                        <option value= 2>
+                        <option value= 3>
+                        <option value= 99>
+                    </datalist>
+                <br>
+                <br>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+{% include "footer.html" %}
 </body>
 </html>

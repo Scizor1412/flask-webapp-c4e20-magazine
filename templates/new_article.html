@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Chỉnh sửa bài viết</title>
+    <title>Bài viết mới</title>
     {% include "meta-data.html" %}
 </head>
 <body>
@@ -16,23 +16,23 @@
             <form method="POST">
                 <label>Tiêu đề</label>
                 <br>
-                <textarea type="text" name="title" style="width: 70%">{{ edit_article.title }}</textarea>
+                <textarea type="text" name="title" style="width: 70%"></textarea>
                 <br>
                 <label>Sapo</label>
                 <br>
-                <textarea type="text" name="sapo" style="width: 70%">{{ edit_article.sapo }}</textarea>
+                <textarea type="text" name="sapo" style="width: 70%"></textarea>
                 <br>
                 <label>Thumbnail</label>
                 <br>
-                <textarea type="text" name="thumbnail" style="width: 70%">{{ edit_article.thumbnail }}</textarea>
+                <textarea type="text" name="thumbnail" style="width: 70%"></textarea>
                 <br>
                 <label>Nội dung</label>
                 <br>
-                <textarea type="text" name="content" style="width: 70%; height: 300px">{{ edit_article.content }}</textarea>
+                <textarea type="text" name="content" style="width: 70%; height: 300px"></textarea>
                 <br>
                 <label>Tác giả</label>
                 <br>
-                <textarea type="text" name="author" style="width: 70%">{{ edit_article.author }}</textarea>
+                <textarea type="text" name="author" style="width: 70%"></textarea>
                 <br>
                 <label>Mục</label>
                 <br>
@@ -40,13 +40,9 @@
                 <input type="radio" value="Games" name="category">Games
                 <input type="radio" value="Film" name="category">Film
                 <br>
-                <label>Thời gian</label>
-                <br>
-                <input type="text" name="time" value="{{ edit_article.time }}"  style="width: 70%">
-                <br>
-                <br>
-                <input type="submit" value="Sửa">
+                <input type="submit" value="Thêm">
             </form>
+            <div class="h-100px"></div>
         </div>
     </div>
 </body>
